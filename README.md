@@ -2,6 +2,9 @@
 
 A modern e-commerce platform for fashion.
 
+![image](https://github.com/user-attachments/assets/783e3b8c-f57b-414d-b60c-c80962b60a40)
+
+
 ## Getting Started
 
 ### Prerequisites
