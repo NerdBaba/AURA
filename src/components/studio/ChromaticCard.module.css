@@ -1,0 +1,76 @@
+.card {
+  --offset: 5px;
+  --blur: 5px;
+  --text-color: #f1f1f1;
+  --border-color: rgba(255, 255, 255, 0.25);
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  color: var(--text-color);
+  border-radius: 12px; /* Match existing radius */
+  border: 1px solid transparent; /* Start with transparent border */
+  overflow: hidden;
+  transition: box-shadow 0.5s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 2rem rgba(128, 0, 128, 0.75);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  padding-top: 125%; /* Aspect ratio for the image */
+  background-size: cover;
+  background-position: center;
+}
+
+.imageContainer::before,
+.imageContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: screen;
+  filter: blur(var(--blur));
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.imageContainer::before {
+  background-color: red;
+  transform: translate(var(--offset), var(--offset));
+}
+
+.imageContainer::after {
+  background-color: blue;
+  transform: translate(calc(-1 * var(--offset)), calc(-1 * var(--offset)));
+}
+
+.card:hover .imageContainer::before,
+.card:hover .imageContainer::after {
+  opacity: 0.6;
+}
+
+.card:hover .imageContainer::before {
+    transform: translate(0, 0);
+}
+
+.card:hover .imageContainer::after {
+    transform: translate(0, 0);
+}
+
+.heading {
+    font-family: var(--font-heading);
+}
+
+.text {
+    font-family: var(--font-body);
+}
